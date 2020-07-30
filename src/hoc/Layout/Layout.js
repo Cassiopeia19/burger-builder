@@ -5,31 +5,31 @@ import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'
 
 class Layout extends Component {
   state = {
-    showSideDrawer: true,
-  };
+    showSideDrawer: false
+  }
 
   sideDrawerClosedHandler = () => {
     this.setState({ showSideDrawer: false });
-  };
+  }
 
   sideDrawerToggleHandler = () => {
-    this.setState( (prevState) => {
-        return { showSideDrawer: !prevState.showSideDrawer };
-  });
-}
+    this.setState((prevState) => {
+      return { showSideDrawer: !prevState.showSideDrawer };
+    });
+  }
 
   render() {
     return (
       <Fragment>
-        <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
+        <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} />
         <SideDrawer
           open={this.state.showSideDrawer}
-          closed={this.sideDrawerClosedHandler}
-        />
-        <main className={classes.Content}>{this.props.children}</main>
-        {this.props.children}
+          closed={this.sideDrawerClosedHandler} />
+        <main className={classes.Content}>
+          {this.props.children}
+        </main>
       </Fragment>
-    );
+    )
   }
 }
 
